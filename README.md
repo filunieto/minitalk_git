@@ -33,7 +33,7 @@ Small data exchange program using UNIX signals.
  ```
 
 # Intro
- > [subject](subject.pdf)
+ > [subject](https://github.com/atorys/Minitalk/blob/master/en.subject.pdf)
 
 # Useful Links
 
