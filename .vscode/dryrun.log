@@ -1,0 +1,26 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/fnieves-/Documents/Proyectos/minitalk pipex/mini talk proyect/minitalk_git'
+(cd libft && make)
+(cd ftprintf && make && make clean)
+(cd libft && make clean)
+(cd libft && make)
+(cd ftprintf && make && make clean)
+(cd libft && make clean)
+mkdir obj
+cc -Wall -Werror -Wextra -I libft -I ftprintf -I mlx -I include -c src/main.c -o obj/main.o
+cc -Wall -Werror -Wextra -I libft -I ftprintf -I mlx -I include -c src/parse.c -o obj/parse.o
+cc -Wall -Werror -Wextra -I libft -I ftprintf -I mlx -I include -c src/parse_julia.c -o obj/parse_julia.o
+cc -Wall -Werror -Wextra -I libft -I ftprintf -I mlx -I include -c src/init.c -o obj/init.o
+cc -Wall -Werror -Wextra -I libft -I ftprintf -I mlx -I include -c src/fractals.c -o obj/fractals.o
+cc -Wall -Werror -Wextra -I libft -I ftprintf -I mlx -I include -c src/complex.c -o obj/complex.o
+cc -Wall -Werror -Wextra -I libft -I ftprintf -I mlx -I include -c src/newtons_utils.c -o obj/newtons_utils.o
+cc -Wall -Werror -Wextra -I libft -I ftprintf -I mlx -I include -c src/color.c -o obj/color.o
+cc -Wall -Werror -Wextra -I libft -I ftprintf -I mlx -I include -c src/hsv2rgb.c -o obj/hsv2rgb.o
+cc -Wall -Werror -Wextra -I libft -I ftprintf -I mlx -I include -c src/events.c -o obj/events.o
+cc -Wall -Werror -Wextra -I libft -I ftprintf -I mlx -I include -c src/view.c -o obj/view.o
+cc -Wall -Werror -Wextra -I libft -I ftprintf -I mlx -I include -c src/change_image.c -o obj/change_image.o
+cc -Wall -Werror -Wextra -I libft -I ftprintf -I mlx -I include -c src/print_info.c -o obj/print_info.o
+cc -Wall -Werror -Wextra -I libft -I ftprintf -I mlx -I include -c src/print_info2.c -o obj/print_info2.o
+cc -Wall -Werror -Wextra -o fractol obj/main.o obj/parse.o obj/parse_julia.o obj/init.o obj/fractals.o obj/complex.o obj/newtons_utils.o obj/color.o obj/hsv2rgb.o obj/events.o obj/view.o obj/change_image.o obj/print_info.o obj/print_info2.o -Llibft -lft -Lftprintf -lftprintf -lm -Lmlx -lmlx -framework OpenGL -framework AppKit
+make: Leaving directory `/Users/fnieves-/Documents/Proyectos/minitalk pipex/mini talk proyect/minitalk_git'
+ 

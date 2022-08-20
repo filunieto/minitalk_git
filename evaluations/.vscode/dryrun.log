@@ -1,0 +1,7 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/fnieves-/Documents/Proyectos/minitalk pipex/mini talk proyect/minitalk_git/evaluations'
+ 
+make: Leaving directory `/Users/fnieves-/Documents/Proyectos/minitalk pipex/mini talk proyect/minitalk_git/evaluations'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+
