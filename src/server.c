@@ -6,7 +6,7 @@
 /*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 07:03:13 by fnieves           #+#    #+#             */
-/*   Updated: 2022/08/20 15:04:41 by fnieves          ###   ########.fr       */
+/*   Updated: 2022/08/20 17:47:41 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int	main(void)
    while (1)
 		pause();
 }
-
 
 // void	handler_sigusr2(int signum)
 // {
