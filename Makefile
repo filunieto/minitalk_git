@@ -3,58 +3,58 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+         #
+#    By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/06/29 12:38:38 by hoomen            #+#    #+#              #
-#    Updated: 2022/07/06 21:11:19 by hoomen           ###   ########.fr        #
+#    Created: 2022/08/20 07:06:40 by fnieves           #+#    #+#              #
+#    Updated: 2022/08/20 22:03:31 by fnieves-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-VPATH	= src bonus
-INCFLAGS = -I libft -I ftprintf -I mlx -I include
+VPATH = src
+INCFLAGS = -I include
 
 CC		= cc
-FLAGS	= -Wall -Werror -Wextra
+CFLAGS	=  -Wall -Werror -Wextra
+RM = rm -f
+FILE_PATH = ./
 
-NAME	= fractol
-BONUSNAME = fractol
-HEADER	= include/fractol.h include/fr_userinfo.h include/keys.h include/fractol_bonus.h
-SRC		= main.c parse.c parse_julia.c init.c fractals.c complex.c newtons_utils.c color.c hsv2rgb.c events.c view.c change_image.c print_info.c print_info2.c
-BON		= main_bonus.c parse.c parse_julia.c init.c fractals.c complex.c newtons_utils.c color.c hsv2rgb.c events.c view.c change_image.c print_info.c print_info2.c
-LIBS	= libft/libft.a ftprintf/libftprintf.a
-OBJ		= $(addprefix obj/,$(notdir $(SRC:.c=.o)))
-BONOBJ	= $(addprefix obj/,$(notdir $(BON:.c=.o)))
 
-$(NAME) : $(OBJ) | $(LIBS)
-	$(CC) $(FLAGS) -o $@ $^ -Llibft -lft -Lftprintf -lftprintf -lm -Lmlx -lmlx -framework OpenGL -framework AppKit
+SERVER = server
+CLIENT = client
 
-obj/%.o : %.c $(LIBS) $(HEADER) | obj
-	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
+SERVER_FILES = server.c
+CLIENT_FILES = client.c
 
-obj :
-	mkdir obj
+HEADER	= 	include/mini_talk.h
 
-$(LIBS) :
-	-(cd libft && make)
-	-(cd ftprintf && make && make clean)
-	-(cd libft && make clean)
+SERVER_FILES = server.c
+CLIENT_FILES = client.c
 
-all : $(NAME)
+SERVER_OBJS = $(addprefix $(FILE_PATH), $(addsuffix .o, $(SERVER)))
+CLIENT_OBJS = $(addprefix $(FILE_PATH), $(addsuffix .o, $(CLIENT)))
 
-bonus : $(BONOBJ) | $(LIBS)
-	$(CC) $(FLAGS) -o $(NAME) $^ -Llibft -lft -Lftprintf -lftprintf -lm -Lmlx -lmlx -framework OpenGL -framework AppKit
+all: $(SERVER) $(CLIENT) 
 
-clean :
-	rm -rf obj
-	
-fclean : clean
-	rm -f $(NAME)
-	-(cd libft && make fclean)
-	-(cd ftprintf && make fclean)
+$(SERVER): ft_minitalk.h $(SERVER_OBJS)
+	$(CC) $(CFLAGS) $(SERVER_OBJS) -o $(SERVER)
 
-re : clean all
+$(CLIENT): ft_minitalk.h $(CLIENT_OBJS)
+	$(CC) $(CFLAGS) $(CLIENT_OBJS) -o $(CLIENT)
 
-libs : fclean all
+# $(SERVER_BONUS): $(BONUS_PATH)ft_minitalk_bonus.h $(FT_PRINTF_OBJ) $(SERVER_BONUS_OBJS)
+# 	$(CC) $(CFLAGS) $(SERVER_BONUS_OBJS) $(FT_PRINTF_OBJ) -o $(SERVER_BONUS)
 
-.PHONY : all clean fclean re bonus
+# $(CLIENT_BONUS): $(BONUS_PATH)ft_minitalk_bonus.h $(FT_PRINTF_OBJ) $(CLIENT_BONUS_OBJS)
+# 	$(CC) $(CFLAGS) $(CLIENT_BONUS_OBJS) $(FT_PRINTF_OBJ) -o $(CLIENT_BONUS)
 
+# bonus: $(SERVER_BONUS) $(CLIENT_BONUS)
+
+clean:
+	$(RM) $(SERVER_OBJS) $(CLIENT_OBJS)
+
+fclean: clean
+	$(RM) $(SERVER) $(CLIENT)
+
+re: fclean all
+
+.PHONY: clean fclean re ft_printf all bonus

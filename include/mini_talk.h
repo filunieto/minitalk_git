@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   mini_talk.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/12 16:56:33 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/12 17:01:53 by fnieves-         ###   ########.fr       */
+/*   Created: 2022/08/20 07:15:09 by fnieves           #+#    #+#             */
+/*   Updated: 2022/08/20 22:06:45 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,38 +16,9 @@
 # include <signal.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h> //recuerda borrar
 
-# include "libft.h"
-# include "ft_printf.h"
-
-/*
-// fractal names
-*/
-# define M "Mandelbrot" 
-
-
-/*
-// default parameters 
-*/
-# define 
-
-
-/*
-// window and image parameters
-*/
-typedef struct s_win
-{
-	void	*mlx;
-
-}			t_win;
-
-
-
-/*
-// main.c
-*/
-void	make_image(t_fr *fr);
-
-
+# include "../libft/libft.h"
+# include "../ftprintf/ft_printf.h"
 
 #endif

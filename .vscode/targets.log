@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Fri Aug 12 16:53:46 2022
+# Make data base, printed on Sun Aug 21 10:52:41 2022
 
 # Variables
 
@@ -16,10 +16,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
-# makefile (from `Makefile', line 25)
-OBJ = $(addprefix obj/,$(notdir $(SRC:.c=.o)))
 # makefile (from `Makefile', line 22)
-SRC = main.c parse.c parse_julia.c init.c fractals.c complex.c newtons_utils.c color.c hsv2rgb.c events.c view.c change_image.c print_info.c print_info2.c
+SERVER = server
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -30,36 +28,42 @@ SRC = main.c parse.c parse_julia.c init.c fractals.c complex.c newtons_utils.c c
 CURDIR := /Users/fnieves-/Documents/Proyectos/minitalk pipex/mini talk proyect/minitalk_git
 # makefile
 SHELL = /bin/sh
-# makefile (from `Makefile', line 23)
-BON = main_bonus.c parse.c parse_julia.c init.c fractals.c complex.c newtons_utils.c color.c hsv2rgb.c events.c view.c change_image.c print_info.c print_info2.c
+# makefile (from `Makefile', line 18)
+RM = rm -f
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
+# makefile (from `Makefile', line 17)
+CFLAGS = -Wall -Werror -Wextra
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_CWD = /
 # environment
-PATH = /usr/bin:/bin:/usr/sbin:/sbin
-# makefile (from `Makefile', line 13)
-VPATH = src bonus
+PATH = /Users/fnieves-/.brew/bin:/Users/fnieves-/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Apple/usr/bin
 # environment
-LaunchInstanceID = 0F77C007-E571-4BE7-9BE1-1E5FA2F1537D
+LSCOLORS = Gxfxcxdxbxegedabagacad
+# makefile (from `Makefile', line 13)
+VPATH = src
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.DXUIAythtC/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.A9aymmVJM3/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
 PWD = /Users/fnieves-/Documents/Proyectos/minitalk pipex/mini talk proyect/minitalk_git
 # makefile (from `Makefile', line 14)
-INCFLAGS = -I libft -I ftprintf -I mlx -I include
+INCFLAGS = -I include
+# makefile (from `Makefile', line 31)
+CLIENT_FILES = client.c
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# makefile (from `Makefile', line 34)
+CLIENT_OBJS = $(addprefix $(FILE_PATH), $(addsuffix .o, $(CLIENT)))
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -73,6 +77,8 @@ LOGNAME = fnieves-
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
+ZSH = /Users/fnieves-/.oh-my-zsh
+# environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
@@ -84,6 +90,8 @@ MAKE = $(MAKE_COMMAND)
 MAKECMDGOALS := all
 # environment
 SHLVL = 1
+# makefile (from `Makefile', line 23)
+CLIENT = client
 # makefile (from `Makefile', line 16)
 CC = cc
 # default
@@ -91,9 +99,9 @@ MAKE_VERSION := 3.81
 # environment
 USER = fnieves-
 # makefile
-.DEFAULT_GOAL := fractol
-# makefile (from `Makefile', line 19)
-NAME = fractol
+.DEFAULT_GOAL := all
+# environment
+LESS = -R
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
@@ -108,54 +116,50 @@ TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n000ccmm003355/T/
 VSCODE_IPC_HOOK = /Users/fnieves-/Library/Application Support/Code/1.69.1-main.sock
 # environment
 MallocNanoZone = 0
+# makefile (from `Makefile', line 19)
+FILE_PATH = ./
 # makefile
 MAKEFLAGS = Rrqp
 # environment
 MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
-# makefile (from `Makefile', line 20)
-BONUSNAME = fractol
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
+XPC_SERVICE_NAME = com.microsoft.VSCode.2496
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
 # environment
 __CF_USER_TEXT_ENCODING = 0x18CA5:0x0:0x0
-# environment
-COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
 # automatic
 <F = $(notdir $<)
 # environment
-LC_ALL = C
-# makefile (from `Makefile', line 21)
-HEADER = include/fractol.h include/fr_userinfo.h include/keys.h include/fractol_bonus.h
-# makefile (from `Makefile', line 24)
-LIBS = libft/libft.a ftprintf/libftprintf.a
+PAGER = less
 # environment
-SECURITYSESSIONID = 186a7
+LC_ALL = C
+# makefile (from `Makefile', line 28)
+HEADER = include/mini_talk.h
+# makefile (from `Makefile', line 30)
+SERVER_FILES = server.c
 # automatic
 ^F = $(notdir $^)
 # default
 SUFFIXES := 
-# makefile (from `Makefile', line 17)
-FLAGS = -Wall -Werror -Wextra
+# makefile (from `Makefile', line 33)
+SERVER_OBJS = $(addprefix $(FILE_PATH), $(addsuffix .o, $(SERVER)))
 # default
 .INCLUDE_DIRS = /usr/local/include
 # environment
 MAKELEVEL := 0
-# makefile (from `Makefile', line 26)
-BONOBJ = $(addprefix obj/,$(notdir $(BON:.c=.o)))
 # environment
 LANG = C
 # environment
-VSCODE_PID = 3959
+VSCODE_PID = 52224
 # variable set hash-table stats:
-# Load=71/1024=7%, Rehash=0, Collisions=7/108=6%
+# Load=73/1024=7%, Rehash=0, Collisions=3/109=3%
 
 # Pattern-specific Variable Values
 
@@ -163,79 +167,60 @@ VSCODE_PID = 3959
 
 # Directories
 
-# include (device 16777227, inode 2420952): 6 files, no impossibilities so far.
-# . (device 16777227, inode 2416787): 16 files, no impossibilities.
-# src/libft: could not be stat'd.
-# bonus/libft: could not be stat'd.
-# src/obj: could not be stat'd.
-# bonus/obj: could not be stat'd.
-# src (device 16777227, inode 2420956): 16 files, no impossibilities.
-# ftprintf (device 16777227, inode 2420951): No files, no impossibilities so far.
-# bonus (device 16777227, inode 2420950): 3 files, no impossibilities.
-# libft (device 16777227, inode 2420953): No files, no impossibilities so far.
+# . (device 16777225, inode 2416787): 16 files, no impossibilities.
+# src (device 16777225, inode 2420956): 11 files, no impossibilities.
 
-# 41 files, no impossibilities in 10 directories.
+# 27 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
-obj/%.o: %.c libft/libft.a ftprintf/libftprintf.a include/fractol.h include/fr_userinfo.h include/keys.h include/fractol_bonus.h | obj
-#  commands to execute (from `Makefile', line 32):
-	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
-	
-
-# 1 implicit rules, 0 (0.0%) terminal.
+# No implicit rules.
 
 # Files
 
-fractol: obj/main.o obj/parse.o obj/parse_julia.o obj/init.o obj/fractals.o obj/complex.o obj/newtons_utils.o obj/color.o obj/hsv2rgb.o obj/events.o obj/view.o obj/change_image.o obj/print_info.o obj/print_info2.o | libft/libft.a ftprintf/libftprintf.a
+server: ft_minitalk.h server.o
 #  Implicit rule search has not been done.
-#  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
+#  Last modified 2022-08-21 01:51:41
+#  File has not been updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/2=0%
-#  commands to execute (from `Makefile', line 29):
-	$(CC) $(FLAGS) -o $@ $^ -Llibft -lft -Lftprintf -lftprintf -lm -Lmlx -lmlx -framework OpenGL -framework AppKit
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 39):
+	$(CC) $(CFLAGS) $(SERVER_OBJS) -o $(SERVER)
 	
 
-all: fractol
+all: server client
 #  Phony target (prerequisite of .PHONY).
 #  Command-line target.
 #  Implicit rule search has not been done.
 #  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
+#  File has not been updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/2=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-obj/print_info.o:
+client.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-.PHONY: all clean fclean re bonus
+client: ft_minitalk.h client.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-
-# Not a target:
-obj/parse_julia.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-obj/main.o: src/main.c libft/libft.a ftprintf/libftprintf.a include/fractol.h include/fr_userinfo.h include/keys.h include/fractol_bonus.h | obj
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `main'
-#  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/2=0%
-#  commands to execute (from `Makefile', line 32):
-	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
+#  commands to execute (from `Makefile', line 42):
+	$(CC) $(CFLAGS) $(CLIENT_OBJS) -o $(CLIENT)
 	
+
+.PHONY: clean fclean re ft_printf all bonus
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+ft_printf:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
 
 # Not a target:
 .SUFFIXES:
@@ -246,79 +231,22 @@ obj/main.o: src/main.c libft/libft.a ftprintf/libftprintf.a include/fractol.h in
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-21 12:43:14
+#  Last modified 2022-08-20 22:03:31
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-libs: fclean all
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
 # Not a target:
-obj/color.o:
+server.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-include/fractol_bonus.h:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/view.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libft/libft.a:
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: `'
-#  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := libft/libft.a
-# automatic
-# % := 
-# automatic
-# * := 
- 
-# automatic
-# + := 
-# automatic
-# | := 
-# automatic
-# < := 
-# automatic
-# ^ := 
-# automatic
-# ? := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/10=10%
-#  commands to execute (from `Makefile', line 38):
-	-(cd libft && make)
-	-(cd ftprintf && make && make clean)
-	-(cd libft && make clean)
-	
-
-bonus: obj/main_bonus.o obj/parse.o obj/parse_julia.o obj/init.o obj/fractals.o obj/complex.o obj/newtons_utils.o obj/color.o obj/hsv2rgb.o obj/events.o obj/view.o obj/change_image.o obj/print_info.o obj/print_info2.o | libft/libft.a ftprintf/libftprintf.a
+bonus:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 45):
-	$(CC) $(FLAGS) -o $(NAME) $^ -Llibft -lft -Lftprintf -lftprintf -lm -Lmlx -lmlx -framework OpenGL -framework AppKit
-	
-
-# Not a target:
-obj/fractals.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
 #  File has not been updated.
 
 fclean: clean
@@ -326,40 +254,17 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 51):
-	rm -f $(NAME)
-	-(cd libft && make fclean)
-	-(cd ftprintf && make fclean)
+#  commands to execute (from `Makefile', line 56):
+	$(RM) $(SERVER) $(CLIENT)
 	
 
 # Not a target:
-src/main.c:
+ft_minitalk.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-21 12:43:15
-#  File has been updated.
-#  Successfully updated.
+#  File does not exist.
+#  File has not been updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-obj:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 35):
-	mkdir obj
-	
-
-# Not a target:
-obj/print_info2.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-include/keys.h:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
@@ -367,40 +272,10 @@ include/keys.h:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-obj/hsv2rgb.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/events.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/complex.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-include/fractol.h:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-re: clean all
+re: fclean all
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
-#  File has not been updated.
-
-# Not a target:
-obj/parse.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
 #  File has not been updated.
 
 clean:
@@ -408,64 +283,26 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 48):
-	rm -rf obj
+#  commands to execute (from `Makefile', line 53):
+	$(RM) $(SERVER_OBJS) $(CLIENT_OBJS)
 	
-
-# Not a target:
-obj/init.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-include/fr_userinfo.h:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/change_image.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-ftprintf/libftprintf.a:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 38):
-	-(cd libft && make)
-	-(cd ftprintf && make && make clean)
-	-(cd libft && make clean)
-	
-
-# Not a target:
-obj/newtons_utils.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/main_bonus.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
 
 # files hash-table stats:
-# Load=34/1024=3%, Rehash=0, Collisions=0/123=0%
+# Load=15/1024=1%, Rehash=0, Collisions=0/49=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
 
 # General (`VPATH' variable) search path:
-# src:bonus
+# src
 
 # # of strings in strcache: 1
 # # of strcache buffers: 1
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Fri Aug 12 16:53:46 2022
+# Finished Make data base on Sun Aug 21 10:52:41 2022
 
  
+make: *** No rule to make target `ft_minitalk.h', needed by `server'.  Stop.
+
