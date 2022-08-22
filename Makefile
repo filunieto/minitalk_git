@@ -6,16 +6,16 @@
 #    By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/20 07:06:40 by fnieves           #+#    #+#              #
-#    Updated: 2022/08/22 19:44:08 by fnieves-         ###   ########.fr        #
+#    Updated: 2022/08/22 20:06:32 by fnieves-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ------------------------------ Sources ------------------------------
 
 # Files
-SERVER		=	server/server.c
+SERVER		=	ft_server/ft_server.c
 
-CLIENT		=	client/client.c
+CLIENT		=	ft_client/ft_client.c
 
 LIBFT		=	cd libft && make
 
@@ -73,7 +73,7 @@ FCLEANED	=	echo "\n🧼 $(BOLD_YELLOW)Fclean: $(NO_COLOR)Removed the executables
 
 all: $(NAME)
 
-$(NAME): comp_start server client
+$(NAME): comp_start ft_server ft_client
 
 comp_start:
 	@$(COMP_START)
