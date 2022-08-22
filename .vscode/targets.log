@@ -7,8 +7,10 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
  
+make: *** No rule to make target `ft_minitalk.h', needed by `server'.  Stop.
 
-# Make data base, printed on Sun Aug 21 10:52:41 2022
+
+# Make data base, printed on Mon Aug 22 16:36:12 2022
 
 # Variables
 
@@ -51,7 +53,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.A9aymmVJM3/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.JUHX049JIq/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -125,7 +127,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.microsoft.VSCode.2496
+XPC_SERVICE_NAME = com.microsoft.VSCode.2184
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -157,7 +159,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 52224
+VSCODE_PID = 78711
 # variable set hash-table stats:
 # Load=73/1024=7%, Rehash=0, Collisions=3/109=3%
 
@@ -168,9 +170,9 @@ VSCODE_PID = 52224
 # Directories
 
 # . (device 16777225, inode 2416787): 16 files, no impossibilities.
-# src (device 16777225, inode 2420956): 11 files, no impossibilities.
+# src (device 16777225, inode 2420956): 13 files, no impossibilities.
 
-# 27 files, no impossibilities in 2 directories.
+# 29 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -180,7 +182,7 @@ VSCODE_PID = 52224
 
 server: ft_minitalk.h server.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-21 01:51:41
+#  Last modified 2022-08-22 15:09:05
 #  File has not been updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
@@ -301,8 +303,6 @@ clean:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sun Aug 21 10:52:41 2022
+# Finished Make data base on Mon Aug 22 16:36:12 2022
 
  
-make: *** No rule to make target `ft_minitalk.h', needed by `server'.  Stop.
-

@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+         #
+#    By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/03/22 15:22:54 by hoomen            #+#    #+#              #
-#    Updated: 2022/07/05 15:31:48 by hoomen           ###   ########.fr        #
+#    Created: 2022/03/22 15:22:54 by fnieves-          #+#    #+#              #
+#    Updated: 2022/08/22 16:35:42 by fnieves-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# define the compiler to use
+# define the compiler to be used
 CC	= cc
 # define the compiler flags
 FLAGS = -Wall -Wextra -Werror

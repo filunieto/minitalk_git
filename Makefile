@@ -6,55 +6,100 @@
 #    By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/20 07:06:40 by fnieves           #+#    #+#              #
-#    Updated: 2022/08/20 22:03:31 by fnieves-         ###   ########.fr        #
+#    Updated: 2022/08/22 19:44:08 by fnieves-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-VPATH = src
-INCFLAGS = -I include
+# ------------------------------ Sources ------------------------------
 
-CC		= cc
-CFLAGS	=  -Wall -Werror -Wextra
-RM = rm -f
-FILE_PATH = ./
+# Files
+SERVER		=	server/server.c
 
+CLIENT		=	client/client.c
 
-SERVER = server
-CLIENT = client
+LIBFT		=	cd libft && make
 
-SERVER_FILES = server.c
-CLIENT_FILES = client.c
+LIB			=	libft/libft.a
 
-HEADER	= 	include/mini_talk.h
+# Sources and objects
+SERVER_SRC	=	$(SERVER)
 
-SERVER_FILES = server.c
-CLIENT_FILES = client.c
+SERVER_OBJS	=	$(SERVER_SRC:.c=.o)
 
-SERVER_OBJS = $(addprefix $(FILE_PATH), $(addsuffix .o, $(SERVER)))
-CLIENT_OBJS = $(addprefix $(FILE_PATH), $(addsuffix .o, $(CLIENT)))
+CLIENT_SRC	=	$(CLIENT)
 
-all: $(SERVER) $(CLIENT) 
+CLIENT_OBJS	=	$(CLIENT_SRC:.c=.o)
 
-$(SERVER): ft_minitalk.h $(SERVER_OBJS)
-	$(CC) $(CFLAGS) $(SERVER_OBJS) -o $(SERVER)
+OBJS		=	$(CLIENT_OBJS) \
+				$(SERVER_OBJS)
 
-$(CLIENT): ft_minitalk.h $(CLIENT_OBJS)
-	$(CC) $(CFLAGS) $(CLIENT_OBJS) -o $(CLIENT)
+# ------------------------------ Constant strings ------------------------------
 
-# $(SERVER_BONUS): $(BONUS_PATH)ft_minitalk_bonus.h $(FT_PRINTF_OBJ) $(SERVER_BONUS_OBJS)
-# 	$(CC) $(CFLAGS) $(SERVER_BONUS_OBJS) $(FT_PRINTF_OBJ) -o $(SERVER_BONUS)
+GCC			=	gcc
 
-# $(CLIENT_BONUS): $(BONUS_PATH)ft_minitalk_bonus.h $(FT_PRINTF_OBJ) $(CLIENT_BONUS_OBJS)
-# 	$(CC) $(CFLAGS) $(CLIENT_BONUS_OBJS) $(FT_PRINTF_OBJ) -o $(CLIENT_BONUS)
+FLAGS		=	-Wall -Wextra -Werror
 
-# bonus: $(SERVER_BONUS) $(CLIENT_BONUS)
+INCLUDE		=	-I include
+
+SERVER_NAME	=	server
+
+CLIENT_NAME	=	client
+
+NAME		=	server
+
+# ------------------------------ Colors ------------------------------
+
+BOLD_PURPLE	=	\033[1;35m
+
+BOLD_CYAN	=	\033[1;36m
+
+BOLD_YELLOW	=	\033[1;33m
+
+NO_COLOR	=	\033[0m
+
+# ------------------------------ Messages ------------------------------
+
+COMP_START	=	echo "\n🚧 $(BOLD_YELLOW)Make: $(NO_COLOR)Starting the compilation...\n"
+
+SERV_READY	=	echo "\n📥 Server ready!\n"
+
+CLI_READY	=	echo "\n📟 Client ready!\n"
+
+CLEANED		=	echo "\n💧 $(BOLD_YELLOW)Clean: $(NO_COLOR)Removed all the \".o\" files \n"
+
+FCLEANED	=	echo "\n🧼 $(BOLD_YELLOW)Fclean: $(NO_COLOR)Removed the executables \n"
+
+# ------------------------------ Rules ------------------------------
+
+all: $(NAME)
+
+$(NAME): comp_start server client
+
+comp_start:
+	@$(COMP_START)
+	@$(LIBFT)
+
+ft_server: $(SERVER_OBJS)
+	@$(GCC) $(FLAGS) $(SERVER_OBJS) $(LIB) -o $(SERVER_NAME)
+	@$(SERV_READY)
+
+ft_client: $(CLIENT_OBJS)
+	@$(GCC) $(FLAGS) $(CLIENT_OBJS) $(LIB) -o $(CLIENT_NAME)
+	@$(CLI_READY)
 
 clean:
-	$(RM) $(SERVER_OBJS) $(CLIENT_OBJS)
+	@rm -rf $(OBJS)
+	@cd libft && make clean
+	@$(CLEANED)
 
 fclean: clean
-	$(RM) $(SERVER) $(CLIENT)
+	@rm -rf $(SERVER_NAME) $(CLIENT_NAME)
+	@cd libft && make fclean
+	@$(FCLEANED)
 
-re: fclean all
+.c.o:
+	@${GCC} ${FLAGS} $(INCLUDE) -c $< -o ${<:.c=.o}
 
-.PHONY: clean fclean re ft_printf all bonus
+re:	fclean all
+
+.PHONY: all minitalk server client clean fclean re libft
