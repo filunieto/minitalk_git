@@ -1,9 +1,12 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/fnieves-/Documents/Proyectos/minitalk pipex/mini talk proyect/minitalk_git'
- 
-cc -Wall -Werror -Wextra   -c -o server.o src/server.c
-cc -Wall -Werror -Wextra   -c -o client.o src/client.c
+echo "\n🚧 \033[1;33mMake: \033[0mStarting the compilation...\n"
+cd libft && make
+gcc -Wall -Wextra -Werror -I include -c ft_server/ft_server.c -o ft_server/ft_server.o
+gcc -Wall -Wextra -Werror ft_server/ft_server.o libft/libft.a -o server
+echo "\n📥 Server ready!\n"
+gcc -Wall -Wextra -Werror -I include -c ft_client/ft_client.c -o ft_client/ft_client.o
+gcc -Wall -Wextra -Werror ft_client/ft_client.o libft/libft.a -o client
+echo "\n📟 Client ready!\n"
 make: Leaving directory `/Users/fnieves-/Documents/Proyectos/minitalk pipex/mini talk proyect/minitalk_git'
  
-make: *** No rule to make target `ft_minitalk.h', needed by `server'.
-

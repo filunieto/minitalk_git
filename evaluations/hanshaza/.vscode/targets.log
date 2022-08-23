@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Tue Aug 23 12:46:58 2022
+# Make data base, printed on Tue Aug 23 13:17:24 2022
 
 # Variables
 
@@ -23,15 +23,19 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # automatic
 @F = $(notdir $@)
 # makefile
-CURDIR := /Users/fnieves-/Documents/Proyectos/minitalk pipex/mini talk proyect/minitalk_git/evaluations
+CURDIR := /Users/fnieves-/Documents/Proyectos/minitalk pipex/mini talk proyect/minitalk_git/evaluations/hanshaza
 # makefile
 SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
-# makefile
-MAKEFILE_LIST := 
+# makefile (from `Makefile', line 5)
+CFLAGS = -Wall -Wextra -Werror
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# makefile (from `Makefile', line 1)
+SOURCES = server.c client.c
 # environment
 VSCODE_CWD = /
 # environment
@@ -49,7 +53,7 @@ SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.d2hHHHa8jB/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
-PWD = /Users/fnieves-/Documents/Proyectos/minitalk pipex/mini talk proyect/minitalk_git/evaluations
+PWD = /Users/fnieves-/Documents/Proyectos/minitalk pipex/mini talk proyect/minitalk_git/evaluations/hanshaza
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
@@ -78,12 +82,14 @@ MAKE = $(MAKE_COMMAND)
 MAKECMDGOALS := all
 # environment
 SHLVL = 1
+# makefile (from `Makefile', line 4)
+CC = gcc
 # default
 MAKE_VERSION := 3.81
 # environment
 USER = fnieves-
 # makefile
-.DEFAULT_GOAL := 
+.DEFAULT_GOAL := all
 # environment
 LESS = -R
 # automatic
@@ -134,12 +140,14 @@ SUFFIXES :=
 .INCLUDE_DIRS = /usr/local/include
 # environment
 MAKELEVEL := 0
+# makefile (from `Makefile', line 2)
+OBJECTS = $(SOURCES:.c=.o)
 # environment
 LANG = C
 # environment
 VSCODE_PID = 35819
 # variable set hash-table stats:
-# Load=63/1024=6%, Rehash=0, Collisions=1/84=1%
+# Load=67/1024=7%, Rehash=0, Collisions=1/95=1%
 
 # Pattern-specific Variable Values
 
@@ -147,24 +155,58 @@ VSCODE_PID = 35819
 
 # Directories
 
-# . (device 16777225, inode 2286968): 8 files, no impossibilities.
+# . (device 16777225, inode 2474738): 15 files, no impossibilities.
 
-# 8 files, no impossibilities in 1 directories.
+# 15 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
-# No implicit rules.
+%.o: %.c
+#  commands to execute (from `Makefile', line 18):
+	$(CC) -c $(CFLAGS) $?
+	
+
+# 1 implicit rules, 0 (0.0%) terminal.
 
 # Files
 
-# Not a target:
-all:
+all: server client
+#  Phony target (prerequisite of .PHONY).
 #  Command-line target.
-#  Implicit rule search has been done.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+
+# Not a target:
+client.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+client: client.o libft
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 15):
+	$(CC) -o $@ $< -Llibft -lft
+	
+
+.PHONY: all bonus libft clean fclean re
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+libft:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 21):
+	make -C libft
+	
 
 # Not a target:
 .SUFFIXES:
@@ -174,23 +216,66 @@ all:
 
 # Not a target:
 Makefile:
-#  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-08-23 00:06:45
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-# Not a target:
-makefile:
-#  A default, MAKEFILES, or -include/sinclude makefile.
+server.o: server.c
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Implicit/static pattern stem: `server'
+#  Last modified 2022-08-23 13:13:34
 #  File has been updated.
-#  Failed to be updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := server.o
+# automatic
+# % := 
+# automatic
+# * := server
+# automatic
+# + := server.c
+# automatic
+# | := 
+# automatic
+# < := server.c
+# automatic
+# ^ := server.c
+# automatic
+# ? := server.c
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+# Load=8/32=25%, Rehash=0, Collisions=1/13=8%
+#  commands to execute (from `Makefile', line 18):
+	$(CC) -c $(CFLAGS) $?
+	
+
+server: server.o libft
+#  Implicit rule search has not been done.
+#  Last modified 2022-08-23 13:13:34
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+#  commands to execute (from `Makefile', line 12):
+	$(CC) -o $@ $< -Llibft -lft
+	
+
+bonus: server client
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+fclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 28):
+	rm -f server client libft/libft.a
+	
 
 # Not a target:
 .DEFAULT:
@@ -199,30 +284,43 @@ makefile:
 #  File has not been updated.
 
 # Not a target:
-GNUmakefile:
-#  A default, MAKEFILES, or -include/sinclude makefile.
+server.c:
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-08-23 13:16:17
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 24):
+	rm -f $(OBJECTS)
+	make -C libft clean
+	
+
 # files hash-table stats:
-# Load=6/1024=1%, Rehash=0, Collisions=0/17=0%
+# Load=15/1024=1%, Rehash=0, Collisions=1/48=2%
 # VPATH Search Paths
 
 # No `vpath' search paths.
 
 # No general (`VPATH' variable) search path.
 
-# # of strings in strcache: 0
-# # of strcache buffers: 0
-# strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
-# strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Tue Aug 23 12:46:58 2022
+# Finished Make data base on Tue Aug 23 13:17:24 2022
 
  
-make: *** No rule to make target `all'.  Stop.
-
