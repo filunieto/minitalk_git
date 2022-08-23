@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 12:20:54 by hbaddrul          #+#    #+#             */
-/*   Updated: 2022/08/23 15:50:26 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/23 18:57:18 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <unistd.h>
 #include "libft/libft.h"
 
-
+//No escribir aqui
 
 static void	action(int sig, siginfo_t *info, void *context)
 {
@@ -23,10 +23,10 @@ static void	action(int sig, siginfo_t *info, void *context)
 	static unsigned char	c = 0;
 
 	(void)context; //esto hay que ponerlo siempre. pertenece al tipo de funcion
-	if (info->si_pid) //por qué hay que asegurar esto? He cambiado  (!client_pid) por (info->si_pid)
+	if (!client_pid) //por qué hay que asegurar esto? He cambiado  (!client_pid) por (info->si_pid)
 		client_pid = info->si_pid;
-	c = c | (sig == SIGUSR1); //siguser2 Si recibimos 1
-	if (++i == 8) //enta al final del caracter
+	c = c | (sig == SIGUSR1); // Si recibimos 1 : c = 0000,0000 | (0000,0001) = 0000,0001
+	if (++i == 8) //enta al final del caracter. Ponemo el incremento de i
 	{
 		i = 0;
 		if (!c) //ademas de final de caracter, es el nulterminated?
@@ -36,12 +36,12 @@ static void	action(int sig, siginfo_t *info, void *context)
 			client_pid = 0;
 			return ;
 		}
-		ft_putchar_fd(c, 1);
+		ft_putchar_fd(c, 1); //cambiar por un write
 		c = 0;
 		kill(client_pid, SIGUSR2); //envia una senal al final de la letra, al cleinet para que incremente el contador de caracteres
 	}
 	else
-		c = c << 1;
+		c = c << 1; //terminar de entedner esto
 }
 
 int	main(void)

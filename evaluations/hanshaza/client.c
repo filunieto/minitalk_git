@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 17:58:19 by hbaddrul          #+#    #+#             */
-/*   Updated: 2022/08/23 16:00:13 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/23 17:51:10 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	mt_kill(int pid, char *str)
 	while (str[j])
 	{
 		i = 8;
-		c = str[j];
+		c = str[j++];
 		while (i--)
 		{
 			if (c >> i & 1)
