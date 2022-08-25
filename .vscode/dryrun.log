@@ -9,6 +9,5 @@ echo "\n📥 Server ready!\n"
 gcc -Wall -Wextra -Werror -I include -c ft_client/ft_client.c -o ft_client/ft_client.o
 gcc -Wall -Wextra -Werror ft_client/ft_client.o libft/libft.a -o client
 echo "\n📟 Client ready!\n"
- 
 make: Leaving directory `/Users/fnieves-/Documents/Proyectos/minitalk pipex/mini talk proyect/minitalk_git'
  
