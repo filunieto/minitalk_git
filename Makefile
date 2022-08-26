@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+         #
+#    By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/20 07:06:40 by fnieves           #+#    #+#              #
-#    Updated: 2022/08/22 20:06:32 by fnieves-         ###   ########.fr        #
+#    Updated: 2022/08/26 14:45:23 by fnieves          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,11 +59,11 @@ NO_COLOR	=	\033[0m
 
 # ------------------------------ Messages ------------------------------
 
-COMP_START	=	echo "\n🚧 $(BOLD_YELLOW)Make: $(NO_COLOR)Starting the compilation...\n"
+COMP_START	=	echo "\n🚂 $(BOLD_YELLOW)Make: $(NO_COLOR)Starting the compilation...\n"
 
-SERV_READY	=	echo "\n📥 Server ready!\n"
+SERV_READY	=	echo "\n📥 Server 👌!\n"
 
-CLI_READY	=	echo "\n📟 Client ready!\n"
+CLI_READY	=	echo "\n💻 Client 👌!\n"
 
 CLEANED		=	echo "\n💧 $(BOLD_YELLOW)Clean: $(NO_COLOR)Removed all the \".o\" files \n"
 

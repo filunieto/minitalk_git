@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 17:58:19 by hbaddrul          #+#    #+#             */
-/*   Updated: 2022/08/23 17:51:10 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/26 13:57:07 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	mt_kill(int pid, char *str)
 
 int	main(int argc, char **argv)
 {
-	if (argc != 3 || !ft_strlen(argv[2])) //escribir mensaje de uso correcto
+	if (argc != 3 || !ft_strlen(argv[2]) || !ft_atoi(argv[1])) //escribir mensaje de uso correcto
 	{
 		ft_exit_failure();
 		//return (1);
