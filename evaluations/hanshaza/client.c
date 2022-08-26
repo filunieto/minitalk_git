@@ -6,7 +6,7 @@
 /*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 17:58:19 by hbaddrul          #+#    #+#             */
-/*   Updated: 2022/08/26 13:57:07 by fnieves          ###   ########.fr       */
+/*   Updated: 2022/08/26 17:05:27 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ static void	mt_kill(int pid, char *str)
 	{
 		i = 8;
 		c = str[j++];
+		//manda los bits de derecha a izquierda o al reves
 		while (i--)
 		{
 			if (c >> i & 1)
