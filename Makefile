@@ -6,7 +6,7 @@
 #    By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/20 07:06:40 by fnieves           #+#    #+#              #
-#    Updated: 2022/08/26 14:45:23 by fnieves          ###   ########.fr        #
+#    Updated: 2022/08/26 20:33:17 by fnieves          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,6 +70,8 @@ CLEANED		=	echo "\n💧 $(BOLD_YELLOW)Clean: $(NO_COLOR)Removed all the \".o\" f
 FCLEANED	=	echo "\n🧼 $(BOLD_YELLOW)Fclean: $(NO_COLOR)Removed the executables \n"
 
 # ------------------------------ Rules ------------------------------
+
+bonus: all
 
 all: $(NAME)
 

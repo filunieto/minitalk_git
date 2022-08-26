@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Aug 26 14:46:45 2022
+# Make data base, printed on Fri Aug 26 20:40:35 2022
 
 # Variables
 
@@ -221,7 +221,7 @@ SNAP_REVISION = 105
 # environment
 LC_MONETARY = de_DE.UTF-8
 # makefile
-.DEFAULT_GOAL := all
+.DEFAULT_GOAL := bonus
 # makefile (from 'Makefile', line 42)
 INCLUDE = -I include
 # environment
@@ -289,10 +289,10 @@ PAGER = less
 # environment
 LC_ALL = C
 # environment
+ 
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
 GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/f2f31f46_fcf3_4531_bdf7_192b7abff95c
- 
 # automatic
 ^F = $(notdir $^)
 # makefile (from 'Makefile', line 62)
@@ -334,9 +334,9 @@ NO_COLOR = \033[0m
 
 # Directories
 
-# . (device 2052, inode 80149): 18 files, no impossibilities.
+# . (device 2052, inode 80149): 16 files, no impossibilities.
 
-# 18 files, no impossibilities in 1 directories.
+# 16 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -395,7 +395,7 @@ comp_start:
 # ? := 
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/15=7%
-#  recipe to execute (from 'Makefile', line 79):
+#  recipe to execute (from 'Makefile', line 81):
 	@$(COMP_START)
 	@$(LIBFT)
 
@@ -414,7 +414,7 @@ libft:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-26 14:45:23.5714771
+#  Last modified 2022-08-26 20:33:17.815164
 #  File has been updated.
 #  Successfully updated.
 
@@ -431,15 +431,20 @@ ft_client: ft_client/ft_client.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 87):
+#  recipe to execute (from 'Makefile', line 89):
 	@$(GCC) $(FLAGS) $(CLIENT_OBJS) $(LIB) -o $(CLIENT_NAME)
 	@$(CLI_READY)
+
+bonus: all
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 .c.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 101):
+#  recipe to execute (from 'Makefile', line 103):
 	@${GCC} ${FLAGS} $(INCLUDE) -c $< -o ${<:.c=.o}
 
 minitalk:
@@ -453,7 +458,7 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 96):
+#  recipe to execute (from 'Makefile', line 98):
 	@rm -rf $(SERVER_NAME) $(CLIENT_NAME)
 	@cd libft && make fclean
 	@$(FCLEANED)
@@ -468,7 +473,7 @@ ft_server: ft_server/ft_server.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 83):
+#  recipe to execute (from 'Makefile', line 85):
 	@$(GCC) $(FLAGS) $(SERVER_OBJS) $(LIB) -o $(SERVER_NAME)
 	@$(SERV_READY)
 
@@ -483,7 +488,7 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 91):
+#  recipe to execute (from 'Makefile', line 93):
 	@rm -rf $(OBJS)
 	@cd libft && make clean
 	@$(CLEANED)
@@ -495,19 +500,19 @@ ft_client/ft_client.o:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=18/1024=2%, Rehash=0, Collisions=0/51=0%
+# Load=19/1024=2%, Rehash=0, Collisions=0/53=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 32 / storage = 303 B / avg = 9 B
-# current buf: size = 8162 B / used = 303 B / count = 32 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 33 / storage = 309 B / avg = 9 B
+# current buf: size = 8162 B / used = 309 B / count = 33 / avg = 9 B
 
-# strcache performance: lookups = 65 / hit rate = 50%
+# strcache performance: lookups = 66 / hit rate = 50%
 # hash-table stats:
-# Load=32/8192=0%, Rehash=0, Collisions=1/65=2%
-# Finished Make data base on Fri Aug 26 14:46:45 2022
+# Load=33/8192=0%, Rehash=0, Collisions=1/66=2%
+# Finished Make data base on Fri Aug 26 20:40:35 2022
 
  
