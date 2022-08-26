@@ -6,12 +6,16 @@
 /*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 07:03:13 by fnieves           #+#    #+#             */
-/*   Updated: 2022/08/26 19:48:13 by fnieves          ###   ########.fr       */
+/*   Updated: 2022/08/26 20:02:47 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // en git estoy: (HEAD, origin/main, origin/HEAD)
 // en lugar de así : (HEAD -> main, origin/main, origin/HEAD)
+//he creado una rama 
+//* commit fcdd30d1b8b91389eb83c40d2bd469c4b3066a28 (HEAD, origin/main, origin/HEAD, before_bonus)
+//me cambio a l arama "before_bonus"
+//* commit fcdd30d1b8b91389eb83c40d2bd469c4b3066a28 (HEAD -> before_bonus, origin/main, origin/HEAD)
 #include "../include/mini_talk.h"
 
 // Se llama a esta funcion cada vez que se recibe o bien SIUSr1 (1) o SIGUSER2 (0)
