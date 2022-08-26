@@ -6,27 +6,29 @@
 /*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 07:03:13 by fnieves           #+#    #+#             */
-/*   Updated: 2022/08/26 17:25:33 by fnieves          ###   ########.fr       */
+/*   Updated: 2022/08/26 19:48:13 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// en git estoy: (HEAD, origin/main, origin/HEAD)
+// en lugar de así : (HEAD -> main, origin/main, origin/HEAD)
 #include "../include/mini_talk.h"
-// Creo que recibe los bits de derecha a izquierda?
-// Se llama a esta funcion cada vez que se envia SIUSr1 (1) o SIGUSER2 (0)
+
+// Se llama a esta funcion cada vez que se recibe o bien SIUSr1 (1) o SIGUSER2 (0)
 /*
 	Si recibe (SIGUSR1) o 1 -> c = c | (sig == SIGUSR1) === c = 0000 0000 | 0000 0001
 	Si recibe (SIGUSR2) o 0 -> c = c | (sig == SIGUSR1) === c = 0000 0000 | 0000 0000
-	
 */
 
 static void	action(int sig, siginfo_t *info, void* context)
 {
 	static int	i = 0;
-	static pid_t	pid_client = 0;
-	static unsigned char c = 0;
+	//static pid_t	pid_client = 0; //si ponemos static guarda el pid
+	pid_t	pid_client;
 
+	static unsigned char c = 0;
 	(void)context; //esto hay que ponerlo siempre. pertenece al tipo de funcion
-	if (!pid_client) //por qué hay que asegurar esto? Quizá  (!client_pid) por (info->si_pid) funcioanria?
+	if (info->si_pid) //por qué hay que asegurar esto? Quizá  (!client_pid) por (info->si_pid) funcioanria?
 		pid_client = info->si_pid;
 	c = c | (sig == SIGUSR1); // Si recibimos 1 : c = 0000,0000 | (0000,0001) = 0000,0001
 	//Solo entra en if cuando i == 8. Aunque no se entre en if, incrementa el i
@@ -36,7 +38,7 @@ static void	action(int sig, siginfo_t *info, void* context)
 		if (!c)
 		{
 			kill(pid_client, SIGUSR1);
-			pid_client = 0; //si cambiamos el el if del 22 : if (!pid_client), podrmiamos anular estalinea?
+			//pid_client = 0; //si cambiamos el el if del 22 : if (!pid_client), podrmiamos anular estalinea?
 			return ;
 		}
 		ft_putchar_fd(c, 1);
@@ -56,7 +58,7 @@ static void	action(int sig, siginfo_t *info, void* context)
 	 y al final del string, otra señal para finalizar.
 */
 
-int	main(int argc, char **argv)
+int	main(void)
 {
 	struct sigaction	s_sigaction;
 	pid_t pid_server;
@@ -70,6 +72,6 @@ int	main(int argc, char **argv)
 	sigaction(SIGUSR1, &s_sigaction, 0);
 	sigaction(SIGUSR2, &s_sigaction, 0);
 	while(1)
-		pause()
+		pause();
 	return(0);
 }

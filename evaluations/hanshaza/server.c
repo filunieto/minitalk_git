@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 12:20:54 by hbaddrul          #+#    #+#             */
-/*   Updated: 2022/08/23 18:57:18 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/26 18:38:42 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,39 @@ static void	action(int sig, siginfo_t *info, void *context)
 		c = c << 1; //terminar de entedner esto
 }
 
+
 int	main(void)
 {
 	struct sigaction	s_sigaction;
+	pid_t pid_server;
 
-	write(1, "Server PID: ", 12);
-	//ft_putstr_fd("Server PID: ", 1);
-	ft_putnbr_fd(getpid(), 1);
-	//ft_putchar_fd('\n', 1);
-	write(1, "\n", 1);
+	pid_server = getpid();
+	ft_putstr_fd("Server PID: ", STDOUT_FILENO);
+	ft_putnbr_fd(pid_server, STDOUT_FILENO);
+	ft_putchar_fd('\n', STDOUT_FILENO);
 	s_sigaction.sa_sigaction = action;
 	s_sigaction.sa_flags = SA_SIGINFO;
-	sigaction(SIGUSR2, &s_sigaction, 0);
 	sigaction(SIGUSR1, &s_sigaction, 0);
-	while (1)
+	sigaction(SIGUSR2, &s_sigaction, 0);
+	while(1)
 		pause();
-	return (0);
+	return(0);
 }
+
+// int	main(void)
+// {
+// 	struct sigaction	s_sigaction;
+// 	pid_t pid_server;
+
+// 	pid_server = getpid();
+// 	ft_putstr_fd("Server PID: ", 1);
+// 	ft_putnbr_fd(pid_server, 1);
+// 	ft_putchar_fd('\n', 1);
+// 	s_sigaction.sa_sigaction = action;
+// 	s_sigaction.sa_flags = SA_SIGINFO;
+// 	sigaction(SIGUSR2, &s_sigaction, 0);
+// 	sigaction(SIGUSR1, &s_sigaction, 0);
+// 	while (1)
+// 		pause();
+// 	return (0);
+// }

@@ -6,7 +6,7 @@
 /*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 12:07:05 by fnieves           #+#    #+#             */
-/*   Updated: 2022/08/26 18:56:52 by fnieves          ###   ########.fr       */
+/*   Updated: 2022/08/26 15:08:27 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,29 +40,26 @@ static void	action(int signal)
 
 static void	send_signal(pid_t pid, char *str)
 {
-	int		i;
-	//char	c;
-	int		j;
+	int i;
+	int decimal;
 
-	j = -1;
-	while (str[++j])
+	i = -1;
+	while(str[++i])
 	{
-		i = 8;
-		//c = str[j];
-		//manda los bits de derecha a izquierda o al reves
-		while (i--)
+		decimal = -1;
+		while (++decimal < 8)
 		{
-			if (str[j] >> i & 1)
-				kill(pid, SIGUSR1); //senal 1
+			if (str[i] && 128 >> decimal) //envia un 1
+				kill(pid, SIGUSR1);
 			else
-				kill(pid, SIGUSR2); //senal 0
+				kill(pid, SIGUSR2);  //envia un 0
 			usleep(100);
 		}
 	}
-	i = 8;
-	while (i--)
+	decimal = -1;
+	while (++decimal < 8)
 	{
-		kill(pid, SIGUSR2); //SIguser1 == 0. Este es el ultimo envio de '\0'
+		kill(pid, SIGUSR2);
 		usleep(100);
 	}
 }
@@ -88,11 +85,10 @@ int	main(int argc, char *argv[])
 		ft_exit_failure();
 	ft_putstr_fd("Bytes sent        : ", STDOUT_FILENO);
 	ft_putnbr_fd(len_str, STDOUT_FILENO);
-	ft_putchar_fd('\n', STDOUT_FILENO);
 	ft_putstr_fd("Bytes received    : ", STDOUT_FILENO);
-	signal(SIGUSR1, action); //atencion con el orden de estas funciones. Deben de estar antes de send_signal
-	signal(SIGUSR2, action);
 	send_signal(ft_atoi(argv[1]), argv[2]);
+	signal(SIGUSR1, action);
+	signal(SIGUSR2, action);
 	while (1)
 		pause();
 	return (0);
