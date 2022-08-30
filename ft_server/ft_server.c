@@ -3,65 +3,67 @@
 /*                                                        :::      ::::::::   */
 /*   ft_server.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
+/*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 07:03:13 by fnieves           #+#    #+#             */
-/*   Updated: 2022/08/26 19:48:13 by fnieves          ###   ########.fr       */
+/*   Updated: 2022/08/30 10:32:23 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// en git estoy: (HEAD, origin/main, origin/HEAD)
-// en lugar de así : (HEAD -> main, origin/main, origin/HEAD)
 #include "../include/mini_talk.h"
 
-// Se llama a esta funcion cada vez que se recibe o bien SIUSr1 (1) o SIGUSER2 (0)
 /*
-	Si recibe (SIGUSR1) o 1 -> c = c | (sig == SIGUSR1) === c = 0000 0000 | 0000 0001
-	Si recibe (SIGUSR2) o 0 -> c = c | (sig == SIGUSR1) === c = 0000 0000 | 0000 0000
+	1. This function is called each time SIGUSER2 / SIGUSER1 is received.
+	1.1. If it receives (SIGUSR1 or 1 )-> c = c | (sig == SIGUSR1)
+	 c = 0000 0000 | 0000 0001
+	1.2. If receive (SIGUSR2 or 0) -> c = c | (sig != SIGUSR1)
+	 c = 0000 0000 | 0000 0000
+	2. Only enters at "if(++i == 8)" when i == 8. 
+	Even if it does not enter if, it increments i
+	3. If the byte is not complete need  to add 1 or 0 to the char as below:
+	c = c << 1; shift the bits one position to the left and
+	wait for a new signal from the client.
+	4. Every 8 signals (byte), a signal will be sent to the client (SIGUSR2);
+	and at the end of the string '\0', another signal to finish.(SIGUSR1)
 */
 
-static void	action(int sig, siginfo_t *info, void* context)
+static void	action(int sig, siginfo_t *info, void *context)
 {
-	static int	i = 0;
-	//static pid_t	pid_client = 0; //si ponemos static guarda el pid
-	pid_t	pid_client;
+	static int				i = 0;
+	static unsigned char	c = 0;
+	pid_t					pid_client;
 
-	static unsigned char c = 0;
-	(void)context; //esto hay que ponerlo siempre. pertenece al tipo de funcion
-	if (info->si_pid) //por qué hay que asegurar esto? Quizá  (!client_pid) por (info->si_pid) funcioanria?
+	(void)context;
+	if (info->si_pid)
 		pid_client = info->si_pid;
-	c = c | (sig == SIGUSR1); // Si recibimos 1 : c = 0000,0000 | (0000,0001) = 0000,0001
-	//Solo entra en if cuando i == 8. Aunque no se entre en if, incrementa el i
-	if (++i == 8) 
+	c = c | (sig == SIGUSR1);
+	if (++i == 8)
 	{
 		i = 0;
 		if (!c)
 		{
 			kill(pid_client, SIGUSR1);
-			//pid_client = 0; //si cambiamos el el if del 22 : if (!pid_client), podrmiamos anular estalinea?
 			return ;
 		}
 		ft_putchar_fd(c, 1);
 		c = 0;
 		kill(pid_client, SIGUSR2);
 	}
-	else //esto se ejecuta si el byte no está completo y hay que seguir anadiendo 1 o 0 al char
-		c = c << 1; //desplazamos los bits una posicion a la izquierda
+	else
+		c = c << 1;
 }
 
 /*
-	1. Imprimimos el pid del server.
-	2. Definimos sigation struct, la cual tomara la funcion
-	 que se ejecutara cuando el server reciba las señales, esto
-	 es: recibir las señales binarias y transformarlas en char;
-	 cada 8 señales, se enviara una señal al cliente;
-	 y al final del string, otra señal para finalizar.
+	1. Print the server pid.
+	2. We define a sigation struct, which will take the function
+	to be executed when the server receives the signals, i.e.
+	receive each bit and transform them into char;
 */
 
 int	main(void)
 {
 	struct sigaction	s_sigaction;
-	pid_t pid_server;
+	pid_t				pid_server;
 
 	pid_server = getpid();
 	ft_putstr_fd("Server PID: ", STDOUT_FILENO);
@@ -71,7 +73,7 @@ int	main(void)
 	s_sigaction.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &s_sigaction, 0);
 	sigaction(SIGUSR2, &s_sigaction, 0);
-	while(1)
+	while (1)
 		pause();
-	return(0);
+	return (0);
 }

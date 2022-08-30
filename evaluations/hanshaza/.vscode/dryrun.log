@@ -1,9 +1,0 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/media/felipe/Datos/Programacion/42/Core_curriculum/proyectos curriculares/mini_talk/minitalk_git/evaluations/hanshaza'
-gcc -c -Wall -Wextra -Werror server.c
-make -C libft
-gcc -o server server.o -Llibft -lft
-gcc -c -Wall -Wextra -Werror client.c
-gcc -o client client.o -Llibft -lft
-make: Leaving directory '/media/felipe/Datos/Programacion/42/Core_curriculum/proyectos curriculares/mini_talk/minitalk_git/evaluations/hanshaza'
- 
