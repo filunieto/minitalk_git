@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_client.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
+/*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 12:07:05 by fnieves           #+#    #+#             */
-/*   Updated: 2022/08/26 21:03:22 by fnieves          ###   ########.fr       */
+/*   Updated: 2022/08/30 10:32:10 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	ft_exit_failure(void)
 
 static void	action(int signal)
 {
-	static int bytes_received = 0;
+	static int	bytes_received = 0;
 
 	if (signal == SIGUSR2)
 		bytes_received++;
@@ -88,8 +88,8 @@ static void	send_signal(pid_t pid, char *str)
 
 int	main(int argc, char *argv[])
 {
-	int len_str;
-	
+	int	len_str;
+
 	len_str = ft_strlen(argv[2]);
 	if (argc != 3 || !len_str || !ft_atoi(argv[1]))
 		ft_exit_failure();

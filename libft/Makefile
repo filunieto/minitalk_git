@@ -6,7 +6,7 @@
 #    By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/22 15:22:54 by fnieves-          #+#    #+#              #
-#    Updated: 2022/08/22 16:35:42 by fnieves-         ###   ########.fr        #
+#    Updated: 2022/08/30 10:39:00 by fnieves-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,10 +51,10 @@ bonus: $(BONUSOBJ) $(OBJ)
 	@ar rc $(NAME) $(BONUSOBJ) $(OBJ)
 
 clean:
-	rm -f *.o
+	@rm -f *.o
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
